@@ -1,0 +1,164 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'new/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'new/css/main.css' %}">
+	<link rel="stylesheet" href="{% static 'new/css/style.css' %}">
+    <noscript><link rel="stylesheet" href="{% static 'news/assets/css/noscript.css' %}" /></noscript>
+    <title>Monochrome Chemicals</title>
+  </head>
+  <body class="index is-preload">
+
+    <div id="page-wrapper">
+
+	<section class="bgimage">
+			<nav class="navbar navbar-dark navbar-expand-md justify-content-between fixed-top navbar-dark" id="navbar">
+					<div class="container-fluid">
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="navbar-collapse collapse dual-nav w-50 order-1 order-md-0">
+								<ul class="navbar-nav">
+									<li class="nav-item">
+										<a class="nav-link pl-0" href="{% url 'indexa' %}">Home <span class="sr-only">Home</span></a>
+									</li>
+									<li class="nav-item active">
+										<a class="nav-link" href="{% url 'products' %}">Products</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="{% url 'about1' %}">About </a>
+									</li>
+								
+									<li class="nav-item">
+										<a class="nav-link" href="{% url 'contact1' %}">Contact</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="{% url 'register1' %}">Register</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="{% url 'userlogin1' %}">Login</a>
+									</li>
+								</ul>
+							</div>
+						
+					</div>
+				</nav>
+
+				<header class="container d-flex h-100 merriweather text-white">
+						<div class="row justify-content-center align-self-center">
+							<div class="col-sm-12 text-left align-middle text--small--mobile line-after">
+								<h1 class="mb-2 fs-44">
+									Products
+								</h1>
+							<a href="#products"><button type="button" class="btn btn-lg btn-info">View All Products</button></a>
+						</div>
+					</div>
+				</header>
+		  </section>
+
+
+
+
+
+	<section class="production_process" id="products">
+		<div class="container">
+			<div class="row justify-content-center align-items-center heading-block">
+                <div class="product-section mt-150 mb-150">
+                    <div class="container">
+                        <div class="row product-lists">
+                            {% for i in data %}
+            
+                            <div class="col-lg-4 col-md-6 text-center">
+                                <div class="single-product-item">
+            
+                                    <div class="product-image">
+                                        <a href="{% url 'single' pid=i.id %}"><img src="{{i.image.url}}" alt="" height="200PX"></a>
+                                    </div>
+                                    <h3>{{i.pname}}</h3>
+                                    <p class="product-price"> {{i.price}}</p>
+                                    <a href="{% url 'single' pid=i.id %}" class="cart-btn"> VIEW_PRODUCTS</a><br><br><br><br>
+                                   
+                                    </div>
+                                    </div>
+                                    {% endfor %}
+            
+            
+                            </div>
+                        </div>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="discover-products">
+			<div class="special container">
+				<div class="row justify-content-center align-items-center">
+					<div class="col-12 col-md-6 text-center text--small--mobile">
+						<div class="product-item-image">
+							<a href="products.html"><button type="button" class="fs-15 btn btn-lg btn-outline-info mx-auto text-uppercase">Discover Products</button></a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+			<!-- Footer -->
+
+
+				<footer id="footer" class="fs-15 merriweather">
+
+					<ul class="icons">
+						<li><a href="#" class="icon circle fa-twitter icon-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon circle fa-facebook icon-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon circle fa-google-plus icon-google-plus2"><span class="label">Google+</span></a></li>
+						<li><a href="#" class="icon circle fa-github icon-pinterest2"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon circle fa-dribbble icon-instagram"><span class="label">Dribbble</span></a></li>
+					</ul>
+
+					<div class="row justify-content-center pt-4 pb-4">
+							<div class="col-12 col-sm-8">
+								<p>Monochrome Chemicals is the first and only company in the world to Greenige have commercialized the production of ethylene oxide, its themicals derivatives and glycols from renewable agricultural resources. We believes in green.</p>
+							</div>
+						</div>
+
+					<div class="row justify-content-center justify-content-md-between flex-column flex-md-row">
+						<p>Email : <a href="#">info@dubaimonochrometrading</a></p>
+						<p>Contact : <a href="#">+971 52 773 7603</a>, <a href="#">+971 52 748 2674</a></p>
+					</div>
+
+					<ul class="icons col-sm-5 d-flex justify-content-around mx-auto pt-4 pb-4">
+						<li><a href="#"><span class="label">Products</span></a></li>
+						<li><a href="#"><span class="label">Privacy Policy</span></a></li>
+						<li><a href="#"><span class="label">Contact</span></a></li>
+					</ul>
+
+					<ul class="copyright">
+						<li><a href="#">Monochrome Chemicals</a> &copy; 2015 - 2017</li><li></li>
+					</ul>
+
+				</footer>
+
+		</div>
+
+	<!-- Scripts -->
+	<script src="{% static 'new/js/jquery.min.js' %}"></script>
+	<script src="{% static 'new/js/jquery.dropotron.min.js' %}"></script>
+    <script src="{% static 'new/js/jquery.scrolly.min.js' %}"></script>
+    <script src="{% static 'new/js/jquery.scrollex.min.js' %}"></script>
+    <script src="{% static 'new/js/browser.min.js' %}"></script>
+    <script src="{% static 'new/js/breakpoints.min.js' %}"></script>
+    <script src="{% static 'new/js/util.js' %}"></script>
+	<script src="{% static 'new/js/main.js' %}"></script>
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="{% static 'new/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'new/js/index.js' %}"></script>
+  </body>
+</html>

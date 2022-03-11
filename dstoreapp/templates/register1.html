@@ -1,0 +1,51 @@
+{% extends 'indexa.html' %}
+{% block content %}
+
+  <!-- book section -->
+  <section class="book_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form_container">
+            <form method="post"  action="{% url 'regi1' %}">
+            {% csrf_token %}
+             
+              <div class="form-group">
+                <input type="text" name="uname" class="form-control" placeholder="Name" />
+              </div>
+              <div>
+                <input type="text" name="phone" class="form-control" placeholder="Phone Number" /><br>
+              </div>
+              <div>
+                <input type="text" name="username" class="form-control" placeholder="username" /><br>
+              </div>
+              <div>
+                <input type="text" name="password" class="form-control" placeholder="password" /><br>
+              </div>
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div>
+             
+              <div class="btn_box">
+                
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                
+              </div>
+            </form>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+  </section>
+
+ 
+  <!-- end book section -->
+
+{% endblock %}

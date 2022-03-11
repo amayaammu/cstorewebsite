@@ -1,0 +1,238 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'new/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'new/css/main.css' %}">
+	<link rel="stylesheet" href="{% static 'new/css/style.css' %}">
+    <noscript><link rel="stylesheet" href="{% static 'new/assets/css/noscript.css' %}" /></noscript>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <title>Monochrome Chemicals</title>
+  </head>
+  <body class="index is-preload">
+
+    <div id="page-wrapper">
+
+	<section class="bgimage">
+			<nav class="navbar navbar-dark navbar-expand-md justify-content-between fixed-top" id="navbar">
+					<div class="container-fluid">
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="navbar-collapse collapse dual-nav w-50 order-1 order-md-0">
+							<ul class="navbar-nav ml-auto">
+								<li class="nav-item active">
+								    <a class="nav-link pl-0" href="{% url 'indexa' %}">Home <span class="sr-only">Home</span></a>
+								</li>
+
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories </a>
+									<div class="dropdown-menu" aria-labelledby="dropdown04">
+										<a class="dropdown-item" href="{% url 'products' %}">All PRODUCTS</a>
+										{% for j in data %}
+										<a  class="dropdown-item" class="nav-link" href="">{{j.name}}</a>
+										{% endfor %}
+									</div>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="{% url 'about1' %}">About </a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="{% url 'contact1' %}">Contact</a>
+								
+								</li>
+								<li><a class="nav-link" href="{% url 'register1' %}">Register</a></li>
+								{% if 'name' in request.session %}
+								<li class="nav-item">
+									
+									<li class="nav-item">
+										<a class="nav-link" href="">Hi {{request.session.uname}}</a>
+									  </li>
+									  <li class="nav-item">
+										<a class="nav-link" href="{% url 'logout1' %}">Logout</a>
+									  </li>
+									  {% else %}
+									  <li class="nav-item">
+										<a class="nav-link" href="{% url 'userlogin1' %}">Login</a>
+									  </li>
+									  {% endif %}
+							</ul>
+						
+							</ul>
+						
+							<div class="navbar-collapse collapse dual-nav w-50 order-2">
+								<ul class="nav navbar-nav ml-auto">
+								
+									<li class="nav-item"><a class="nav-link" href="{% url 'cart' %}"><i class="fa fa-shopping-cart"></i></a></li>
+									<li class="nav-item"><a class="nav-link" href=""><i class="fa fa-search"></i></a></li>
+									
+								</ul>
+							</div>
+					</div>
+				</nav>
+
+				<header class="special container d-flex h-100 merriweather">
+						<div class="row justify-content-center align-self-center">
+						<div class="col-sm-12 col-md-6 offset-md-6 text-left align-middle text--small--mobile">
+								<h1 class="mb-2">
+									Monochrome Chemicals
+								</h1>
+							<p>Established in the year of 2010 Monochrome Chemicals &amp; Specialties has evolved as one of the leading speciality chemical company in the industry for home / personal care and coating ingredients. Since inception, we have been the most chosen supplier and product development partner for many leading FMCG manufacturers. Additionally, a preferred channel partner for the global leading speciality chemical manufactures.</p>
+							<a href="#mc_chemicals"><button type="button" class="btn btn-lg btn-info">View More</button></a>
+						</div>
+					</div>
+				</header>
+		  </section>
+
+{% block content %}
+		<div class="bgcontainer h-100 chemical-process pb-5" id="mc_chemicals">
+				<section class="special w-100">
+					<div class="container">
+						<div class="row justify-content-start align-self-center heading-block">
+							<div class="col-sm-12 text-left align-baseline text--small--mobile heading-line-after">
+									<div class="text-uppercase">Monochrome Chemicals</div>
+								<h1 class="mb-2 text-info">Our Specialities</h1>
+						</div>
+						<div class="col-12 col-sm-6 text-left align-baseline text--small--mobile chemical-list-items mt-5">
+								<ul class="list-unstyled">
+									<li>
+										<img src="{% static 'new/images/flasks.png' %}" class="icon img-fluid">
+										<h2 class="text-info">Customer Satisfaction</h2>
+										<p>Our customers are at the heart of our business strategy. Hence, we strive our best to see our customers are successful and at every moment we try to add value for our customers with excellence in Technical Services along with a reliable logistical support.</p>
+									</li>
+									<li>
+										<img src="{% static 'new/images/molecular.png' %}" class="icon img-fluid">
+										<h2 class="text-info">Quality Serves</h2>
+										<p>Our Chemicals and Specialities Business unit serve with niche products addressing the paints and coating industry with UV stabilizers and Anti-Oxidants of highest performance. We also serve specific needs for industries like food, spices, automotive etc with specific cargo and device protection for the intermodal transport. The product range includes Container Desiccants, Oxygen absorbers, Humidity Indicators etc.</p>
+									</li>
+									<li>
+										<img src="{% static 'new/images/chemistry.png' %}" class="icon img-fluid">
+										<h2 class="text-info">You are in Good Company</h2>
+										<p>Monochrome Chemicals, UAE and Gravity Chemicals, India are associate partners and have been working in the industry for the past few years. Gravity Chemicals was established in the year 2012. We are the leading specialty chemical producing companies in the market as well.</p>
+									</li>
+								</ul>
+						</div>
+					</div>
+					</div>
+				</section>
+			</div>
+
+
+			<section class="bgimage lab d-flex align-items-center text-white">
+						<div class="special container">
+							<div class="row justify-content-center align-items-center heading-block">
+								<div class="col-12 col-md-10 text-center text--small--mobile heading-line-middle">
+								<h1 class="mb-2 text-uppercase">Our Strengths</h1>
+								<p class="lead">Complete Solutions and quick customer response.</p>
+								<p>Knowledge network with all the leading Formulators and Product Developments Experts in the Industry. Technical Consultancy as additional benefit to customer which helps the customers to optimize their formulations as well for their new developments. Support on Package developments by bridging between customers and leading Plastic /packaging manufacturers (Manjushree, Alpla etc). Scouting for new ideas along with customers and help for their further growth. Complete support in product development from scratch- Formulation support, packaging development, Designing and innovation is products promotions.</p>
+							<a href="products.html"><button type="button" class="btn btn-lg btn-outline-light mt-2">DISCOVER PRODUCTS</button></a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="d-flex align-items-center">
+					<div class="special container">
+						<div class="row justify-content-center align-items-center heading-block">
+							<div class="col-12 col-md-6 text-center text--small--mobile heading-line-middle">
+							<h1 class="mb-2 text-uppercase text-info">Meet Our Products</h1>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+	<section class="product-list">
+		<div class="special container">
+			<div class="row justify-content-center align-items-center">
+				<div class="row">
+					{% for i in data %}
+					<div class="col-lg-4 col-md-6 text-center">
+						<div class="single-product-item">
+							<div class="product-image">
+								<a href="single-product.html"><img src="{{i.image.url}}" alt="" height="200PX"></a>
+							</div>
+							<h3>{{i.name}}</h3>
+							<p class="product-price"><span>{{i.description}}</span> </p>
+						</div>
+					</div>
+					{% endfor %}
+	
+			</div>
+		</div>
+	</div>
+</section>
+	
+
+
+
+<section class="discover-products">
+	<div class="special container">
+		<div class="row justify-content-center align-items-center">
+			<div class="col-12 col-md-6 text-center text--small--mobile">
+				<div class="product-item-image montserrat">
+					<a href="products.html"><button type="button" class="fs-15 btn btn-lg btn-outline-info mx-auto text-uppercase">Discover Products</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
+			<!-- Footer -->
+
+				<footer id="footer" class="fs-15 merriweather">
+
+					<ul class="icons">
+						<li><a href="#" class="icon circle fa-twitter icon-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon circle fa-facebook icon-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon circle fa-google-plus icon-google-plus2"><span class="label">Google+</span></a></li>
+						<li><a href="#" class="icon circle fa-github icon-pinterest2"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon circle fa-dribbble icon-instagram"><span class="label">Dribbble</span></a></li>
+					</ul>
+
+					<div class="row justify-content-center pt-4 pb-4">
+							<div class="col-12 col-sm-8">
+								<p>Monochrome Chemicals is the first and only company in the world to Greenige have commercialized the production of ethylene oxide, its themicals derivatives and glycols from renewable agricultural resources. We believes in green.</p>
+							</div>
+						</div>
+
+					<div class="row justify-content-center justify-content-md-between flex-column flex-md-row">
+						<p>Email : <a href="#">info@dubaimonochrometrading</a></p>
+						<p>Contact : <a href="#">+971 52 773 7603</a>, <a href="#">+971 52 748 2674</a></p>
+					</div>
+
+					<ul class="icons col-sm-5 d-flex justify-content-around mx-auto pt-4 pb-4">
+						<li><a href="#"><span class="label">Products</span></a></li>
+						<li><a href="#"><span class="label">Privacy Policy</span></a></li>
+						<li><a href="#"><span class="label">Contact</span></a></li>
+					</ul>
+
+					<ul class="copyright">
+						<li><a href="#">Monochrome Chemicals</a> &copy; 2015 - 2017</li><li></li>
+					</ul>
+
+				</footer>
+
+		</div>
+
+	<!-- Scripts -->
+	<script src="{% static 'new/js/jquery.min.js' %}"></script>
+	<script src="{% static 'new/js/jquery.dropotron.min.js' %}"></script>
+    <script src="{% static 'new/js/jquery.scrolly.min.js' %}"></script>
+    <script src="{% static 'new/js/jquery.scrollex.min.js' %}"></script>
+    <script src="{% static 'new/js/browser.min.js' %}"></script>
+    <script src="{% static 'new/js/breakpoints.min.js' %}"></script>
+    <script src="{% static 'new/js/util.js' %}"></script>
+	<script src="{% static 'new/js/main.js' %}"></script>
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="{% static 'new/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'new/js/index.js' %}"></script>
+  </body>
+</html>
